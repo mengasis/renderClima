@@ -41,39 +41,44 @@
 
       $('#btn-actualizar').click(function(){
         var apikey = '2eeb38e5c1e60f753b2f69c746dfc7f0';
-        var url_santiago = 'http://api.openweathermap.org/data/2.5/forecast/city?id=3871336&APPID=' + apikey;
-        var url_buenos_aires = 'http://api.openweathermap.org/data/2.5/forecast/city?id=6693229&APPID=' + apikey;
-        var url_lima = 'http://api.openweathermap.org/data/2.5/forecast/city?id=3936456&APPID=' + apikey;
-        var url_sao_paulo = 'http://api.openweathermap.org/data/2.5/forecast/city?id=7521912&APPID=' + apikey;
 
-        $.get(url_santiago, function (data) {
-            console.log(data);
-            if (data.message === 'Error') {
-                alert("La API no responde");
-            } else {
+        ciudades = ['3871336', '6693229', '3936456', '7521912'];
 
-                //console.log(data.list[0].main.temp);
+        $.each(ciudades, function(key, value){
 
-                $.ajax({
-                    // la URL para la petición
-                    url: '/getTemperatura',
+          var url = 'http://api.openweathermap.org/data/2.5/forecast/city?id='+value+'&APPID=' + apikey;
 
-                    // la información a enviar (también es posible utilizar una cadena de datos)
-                    data: {
-                        'ciudad': 'Santiago',
-                        'temperatura': '300',
-                        authenticity_token: window._token
-                    },
-                    // especifica si será una petición POST o GET
-                    type: 'POST',
-                    // código a ejecutar si la petición es satisfactoria; la respuesta es pasada como argumento a la función
-                    success: function (response) {
-                        console.log('Exito');
-                    }
-                });
+          $.get(url, function (data) {
+              console.log(data);
+              if (data.message === 'Error') {
+                  alert("La API no responde");
+              } else {
 
-            }
+                  //console.log(data.list[0].main.temp);
+                  $.ajax({
+                      // la URL para la petición
+                      url: '/getTemperatura',
+
+                      // la información a enviar (también es posible utilizar una cadena de datos)
+                      data: {
+                          'ciudad': data.city.name,
+                          'temperatura': data.list[0].main.temp,
+                          authenticity_token: window._token
+                      },
+                      // especifica si será una petición POST o GET
+                      type: 'POST',
+                      // código a ejecutar si la petición es satisfactoria; la respuesta es pasada como argumento a la función
+                      success: function (response) {
+                          console.log('Exito');
+                      }
+                  });
+
+              }
+          });
+
         });
+
+
       });
 
     });

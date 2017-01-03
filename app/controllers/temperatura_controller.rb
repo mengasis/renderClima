@@ -10,7 +10,7 @@ class TemperaturaController < ApplicationController
 
     Temperatura.create(temperatura: temp, ciudad: ciudad, fecha: Date.current.to_s)
 
-    redirect_to action: 'index'
+    redirect_to action: 'historico'
 
   end
 

@@ -7,7 +7,12 @@ Rails.application.routes.draw do
 
   get '/reset', to: 'temperatura#reset', as: 'reset'
 
-  root 'temperatura#historico'
+  get '/actual', to: 'temperatura#actual', as: 'actual'
+
+  get '/historico', to: 'temperatura#historico', as: 'historico'
+
+
+  root 'temperatura#actual'
 
 
 end

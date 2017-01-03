@@ -4,6 +4,16 @@ class TemperaturaController < ApplicationController
     @temperaturas = Temperatura.all
   end
 
+  def actual
+
+    @santiago = Temperatura.where(:ciudad => 'Santiago').first
+    @buenos_aires = Temperatura.where(:ciudad => 'Buenos Aires').first
+    @lima = Temperatura.where(:ciudad => 'Lima').first
+    @sao_paulo = Temperatura.where(:ciudad => 'Sao Paulo').first
+
+
+  end
+
   def create
     temp = params[:temperatura]
     ciudad = params[:ciudad]

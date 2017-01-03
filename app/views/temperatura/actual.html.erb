@@ -1,0 +1,44 @@
+<nav>
+    <div class="nav-wrapper teal darken-1">
+        <a href="#" class="brand-logo">Clima Actual</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="/historico">Clima historico</a>
+            </li>
+            <li>
+                <a id="btn-actualizar" href="#">Actualizar</a>
+            </li>
+            <li>
+                <a id="btn-actualizar" href="/reset">Reset</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+Santiago:
+<% if @santiago%>
+<%= @santiago.temperatura%>
+<% else %>
+NULL
+<% end %>
+
+Buenos Aires
+<% if @buenos_aires %>
+<%= @buenos_aires.temperatura%>
+<% else %>
+NULL
+<% end %>
+
+Lima:
+<% if @lima%>
+<%= @lima.temperatura%>
+<% else %>
+NULL
+<% end %>
+
+Sao Paulo:
+<% if @sao_paulo%>
+<%= @sao_paulo.temperatura%>
+<% else %>
+NULL
+<% end %>

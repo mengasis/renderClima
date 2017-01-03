@@ -15,33 +15,78 @@
     </div>
 </nav>
 
-Santiago:
-<% if @santiago%>
-<%= @santiago.temperatura%>
-<% else %>
-NULL
-<% end %>
 
-Buenos Aires
-<% if @buenos_aires %>
-<%= @buenos_aires.temperatura%>
-<% else %>
-NULL
-<% end %>
+<div class="row">
+  <div class="col-4-md">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card red darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Santiago</span>
+            <p><% if @santiago.nil?%>
+            No hay datos
+            <% else %>
+            <%= @santiago.temperatura%>
+            <% end %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-Lima:
-<% if @lima%>
-<%= @lima.temperatura%>
-<% else %>
-NULL
-<% end %>
+  <div class="col-4-md">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card light-blue darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Buenos Aires</span>
+            <p><% if @buenos_aires.nil? %>
+            No hay datos
+            <% else %>
+            <%= @buenos_aires.temperatura%>
+            <% end %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-Sao Paulo:
-<% if @sao_paulo%>
-<%= @sao_paulo.temperatura%>
-<% else %>
-NULL
-<% end %>
+  <div class="col-4-md">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card amber darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Lima</span>
+            <p><% if @lima.nil?%>
+            No hay datos
+            <% else %>
+            <%= @lima.temperatura%>
+            <% end %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4-md">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card green darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Sao Paulo</span>
+            <p><% if @sao_paulo.nil?%>
+            No hay datos
+            <% else %>
+            <%= @sao_paulo.temperatura%>
+            <% end %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 
 <script type="text/javascript">
     $(document).ready(function () {

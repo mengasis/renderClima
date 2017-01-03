@@ -1,0 +1,88 @@
+<nav>
+    <div class="nav-wrapper teal darken-1">
+        <a href="#" class="brand-logo">Historial Clima</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="#">Clima Actual</a>
+            </li>
+            <li>
+                <a id="btn-actualizar" href="#">Actualizar</a>
+            </li>
+            <li>
+                <a id="btn-actualizar" href="/reset">Reset</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <table class="striped">
+        <thead>
+            <tr>
+                <th class="center-align">Ciudad</th>
+                <th class="center-align">Fecha</th>
+                <th class="center-align">Temperatura</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @temperaturas.each do |temp| %>
+            <tr>
+                <td class="center-align"><%= temp.ciudad%></td>
+                <td class="center-align"><%= temp.fecha%></td>
+                <td class="center-align"><%= temp.temperatura%></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+</div>
+<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+      $('#btn-actualizar').click(function(){
+        var apikey = '2eeb38e5c1e60f753b2f69c746dfc7f0';
+
+        ciudades = {"Santiago": '3871336', "Buenos Aires": '6693229', "Lima": '3936456', "Sao Paulo": '7521912'};
+
+        $.each(ciudades, function(key, value){
+
+          var url = 'http://api.openweathermap.org/data/2.5/forecast/city?id='+value+'&APPID=' + apikey;
+
+          $.get(url, function (data) {
+              console.log(data);
+              if (data.message === 'Error') {
+                  alert("La API no responde para la ciudad de " + key);
+              } else {
+
+                  //console.log(data.list[0].main.temp);
+                  $.ajax({
+                      // la URL para la petición
+                      url: '/getTemperatura',
+
+                      // la información a enviar (también es posible utilizar una cadena de datos)
+                      data: {
+                          'ciudad': key,
+                          'temperatura': data.list[0].main.temp,
+                          authenticity_token: window._token
+                      },
+                      // especifica si será una petición POST o GET
+                      type: 'POST',
+                      // código a ejecutar si la petición es satisfactoria; la respuesta es pasada como argumento a la función
+                      success: function (response) {
+                          console.log('Exito');
+                      }
+                  });
+
+              }
+          });
+
+        });
+
+
+      });
+
+    });
+</script>

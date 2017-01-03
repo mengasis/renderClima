@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :temperatura
 
-  root 'temperatura#index'
+  post '/getTemperatura', to: 'temperatura#create', as: 'getTemperatura'
+
+  root 'temperatura#historico'
 
 
 end

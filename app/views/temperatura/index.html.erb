@@ -1,0 +1,21 @@
+<h1>Clima</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>Ciudad</td>
+            <td>Fecha</td>
+            <td>Temperatura</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @temperaturas.each do |temp| %>
+        <tr>
+          <td><%= temp.ciudad%></td>
+          <td><%= temp.fecha%></td>
+          <td><%= temp.temperatura%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

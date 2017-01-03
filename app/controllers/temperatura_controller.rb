@@ -1,0 +1,2 @@
+class TemperaturaController < ApplicationController
+end

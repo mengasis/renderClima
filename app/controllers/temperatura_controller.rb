@@ -14,4 +14,9 @@ class TemperaturaController < ApplicationController
 
   end
 
+  def reset
+    Temperatura.delete_all
+    redirect_to action: 'historico'
+  end
+
 end

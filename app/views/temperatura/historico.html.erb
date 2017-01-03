@@ -8,6 +8,9 @@
             <li>
                 <a id="btn-actualizar" href="#">Actualizar</a>
             </li>
+            <li>
+                <a id="btn-actualizar" href="/reset">Reset</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -42,7 +45,7 @@
       $('#btn-actualizar').click(function(){
         var apikey = '2eeb38e5c1e60f753b2f69c746dfc7f0';
 
-        ciudades = ['3871336', '6693229', '3936456', '7521912'];
+        ciudades = {"Santiago": '3871336', "Buenos Aires": '6693229', "Lima": '3936456', "Sao Paulo": '7521912'};
 
         $.each(ciudades, function(key, value){
 
@@ -51,7 +54,7 @@
           $.get(url, function (data) {
               console.log(data);
               if (data.message === 'Error') {
-                  alert("La API no responde");
+                  alert("La API no responde para la ciudad de " + key);
               } else {
 
                   //console.log(data.list[0].main.temp);
@@ -61,7 +64,7 @@
 
                       // la información a enviar (también es posible utilizar una cadena de datos)
                       data: {
-                          'ciudad': data.city.name,
+                          'ciudad': key,
                           'temperatura': data.list[0].main.temp,
                           authenticity_token: window._token
                       },

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   post '/getTemperatura', to: 'temperatura#create', as: 'getTemperatura'
 
+  get '/reset', to: 'temperatura#reset', as: 'reset'
+
   root 'temperatura#historico'
 
 

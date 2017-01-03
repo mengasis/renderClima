@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperatura: MyString
+  ciudad: MyString
+  fecha: 2017-01-03
+
+two:
+  temperatura: MyString
+  ciudad: MyString
+  fecha: 2017-01-03

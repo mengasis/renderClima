@@ -1,3 +1,8 @@
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
 <h1>Clima</h1>
 
 <table>
@@ -19,3 +24,19 @@
         <% end %>
     </tbody>
 </table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    var apikey = '2eeb38e5c1e60f753b2f69c746dfc7f0';
+    var url_santiago = 'http://api.openweathermap.org/data/2.5/forecast/city?id=3871336&APPID='+ apikey;
+    var url_buenos_aires = 'http://api.openweathermap.org/data/2.5/forecast/city?id=6693229&APPID='+ apikey;
+    var url_lima = 'http://api.openweathermap.org/data/2.5/forecast/city?id=3936456&APPID='+ apikey;
+    var url_sao_paulo = 'http://api.openweathermap.org/data/2.5/forecast/city?id=7521912&APPID='+ apikey;
+
+
+
+
+  });
+
+</script>

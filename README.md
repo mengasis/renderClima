@@ -11,9 +11,9 @@ Aplicacion que hace el consumo de una api en donde muestra la temperatura en Kel
 ### Screenshots
 
 ##### Actual
-![A screenshot of your theme](https://github.com/mengasis/renderClima/blob/screenshots/sample/Actual.png?raw=true)
+![A screenshot of your theme](https://github.com/mengasis/renderClima/blob/master/sample/Actual.png?raw=true)
 
 
 
 ##### Historico
-![A screenshot of your theme](https://github.com/mengasis/renderClima/blob/screenshots/sample/Historico.png?raw=true)
+![A screenshot of your theme](https://github.com/mengasis/renderClima/blob/master/sample/Historico.png?raw=true)

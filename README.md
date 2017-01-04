@@ -1,24 +1,19 @@
-# README
+Render Clima
+===================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicacion que hace el consumo de una api en donde muestra la temperatura en Kelvin de las siguientes ciudades:
 
-Things you may want to cover:
+- Santiago
+- Buenos Aires
+- Lima
+- Sao Paulo
 
-* Ruby version
+### Screenshots
 
-* System dependencies
+##### Actual
+![A screenshot of your theme](https://github.com/mengasis/renderClima/blob/screenshots/sample/Actual.png?raw=true)
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##### Historico
+![A screenshot of your theme](https://github.com/mengasis/renderClima/blob/screenshots/sample/Historico.png?raw=true)
